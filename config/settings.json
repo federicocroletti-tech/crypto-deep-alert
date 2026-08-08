@@ -1,0 +1,181 @@
+{
+  "report": {
+    "send_email_if_no_alerts": false,
+    "max_items_in_email": 30,
+    "currency": "USD"
+  },
+  "universe": {
+    "source": "catalog",
+    "catalog_path": "config/crypto_catalog.json",
+    "market_cache_path": "config/market_cache.json",
+    "track_all_ready_from_catalog": true,
+    "include_enabled_watchlist_only": false,
+    "max_enabled_crypto": 100
+  },
+  "alertCategories": {
+    "negative_alerts": {
+      "label": "ALERT RIBASSI CRYPTO",
+      "description": "Segnala crypto in perdita rispetto ai massimi recenti. Utile per monitorare drawdown e fasi di debolezza.",
+      "enabled": true
+    },
+    "positive_alerts": {
+      "label": "ALERT RIALZI CRYPTO",
+      "description": "Segnala crypto in forte guadagno rispetto ai minimi recenti. Utile per monitorare momentum e recuperi forti.",
+      "enabled": true
+    },
+    "stablecoin_depeg_alerts": {
+      "label": "ALERT DEPEG STABLECOIN",
+      "description": "Segnala stablecoin che si allontanano dal valore teorico di 1 dollaro.",
+      "enabled": true
+    }
+  },
+  "alertLevels": {
+    "negative": {
+      "watch": {
+        "label": "OSSERVAZIONE",
+        "color": "#64748b",
+        "background": "#f1f5f9",
+        "min_drop_pct": -5.0,
+        "max_drop_pct": -10.0,
+        "description": "Piccolo ribasso crypto: da -5,0% a -10,0% dal massimo recente."
+      },
+      "base": {
+        "label": "BASE",
+        "color": "#0ea5e9",
+        "background": "#e0f2fe",
+        "min_drop_pct": -10.0,
+        "max_drop_pct": -20.0,
+        "description": "Ribasso crypto: da -10,0% a -20,0% dal massimo recente."
+      },
+      "medium": {
+        "label": "MEDIO",
+        "color": "#f97316",
+        "background": "#ffedd5",
+        "min_drop_pct": -20.0,
+        "max_drop_pct": -35.0,
+        "description": "Drawdown crypto rilevante: da -20,0% a -35,0% dal massimo recente."
+      },
+      "high": {
+        "label": "ALTO",
+        "color": "#dc2626",
+        "background": "#fee2e2",
+        "min_drop_pct": -35.0,
+        "max_drop_pct": -50.0,
+        "description": "Drawdown crypto forte: da -35,0% a -50,0% dal massimo recente."
+      },
+      "drawdown": {
+        "label": "DRAWDOWN",
+        "color": "#7f1d1d",
+        "background": "#fecaca",
+        "min_drop_pct": -50.0,
+        "max_drop_pct": -70.0,
+        "description": "Drawdown crypto molto pesante: da -50,0% a -70,0% dal massimo recente."
+      },
+      "severe_drawdown": {
+        "label": "DRAWDOWN ESTREMO",
+        "color": "#581c87",
+        "background": "#f3e8ff",
+        "min_drop_pct": -70.0,
+        "max_drop_pct": -90.0,
+        "description": "Drawdown crypto estremo: da -70,0% a -90,0% dal massimo recente."
+      },
+      "catastrophic_loss": {
+        "label": "PERDITA CATASTROFICA",
+        "color": "#450a0a",
+        "background": "#991b1b",
+        "min_drop_pct": -90.0,
+        "max_drop_pct": null,
+        "description": "Perdita estrema: ribasso pari o superiore al -90,0% dal massimo recente."
+      }
+    },
+    "positive": {
+      "positive_low": {
+        "label": "POSITIVO",
+        "color": "#16a34a",
+        "background": "#dcfce7",
+        "min_gain_pct": 10.0,
+        "max_gain_pct": 20.0,
+        "description": "Guadagno crypto positivo: da +10,0% a +20,0% dal minimo recente."
+      },
+      "positive_medium": {
+        "label": "MOLTO POSITIVO",
+        "color": "#15803d",
+        "background": "#bbf7d0",
+        "min_gain_pct": 20.0,
+        "max_gain_pct": 40.0,
+        "description": "Guadagno crypto importante: da +20,0% a +40,0% dal minimo recente."
+      },
+      "positive_high": {
+        "label": "FORTE RIALZO",
+        "color": "#166534",
+        "background": "#86efac",
+        "min_gain_pct": 40.0,
+        "max_gain_pct": 70.0,
+        "description": "Forte rialzo crypto: da +40,0% a +70,0% dal minimo recente."
+      },
+      "positive_very_high": {
+        "label": "RIALZO MOLTO FORTE",
+        "color": "#14532d",
+        "background": "#4ade80",
+        "min_gain_pct": 70.0,
+        "max_gain_pct": 100.0,
+        "description": "Rialzo crypto molto forte: da +70,0% a +100,0% dal minimo recente."
+      },
+      "positive_extreme": {
+        "label": "RIALZO ESTREMO",
+        "color": "#052e16",
+        "background": "#22c55e",
+        "min_gain_pct": 100.0,
+        "max_gain_pct": null,
+        "description": "Rialzo crypto estremo: oltre +100,0% dal minimo recente."
+      }
+    },
+    "stablecoin_depeg": {
+      "minor_depeg": {
+        "label": "DEPEG LIEVE",
+        "color": "#f97316",
+        "background": "#ffedd5",
+        "min_abs_depeg_pct": 0.5,
+        "max_abs_depeg_pct": 1.0,
+        "description": "Stablecoin fuori peg tra 0,5% e 1,0%."
+      },
+      "major_depeg": {
+        "label": "DEPEG IMPORTANTE",
+        "color": "#dc2626",
+        "background": "#fee2e2",
+        "min_abs_depeg_pct": 1.0,
+        "max_abs_depeg_pct": 5.0,
+        "description": "Stablecoin fuori peg tra 1,0% e 5,0%."
+      },
+      "critical_depeg": {
+        "label": "DEPEG CRITICO",
+        "color": "#7f1d1d",
+        "background": "#fecaca",
+        "min_abs_depeg_pct": 5.0,
+        "max_abs_depeg_pct": null,
+        "description": "Stablecoin fuori peg oltre 5,0%."
+      }
+    }
+  },
+  "data": {
+    "interval": "1d",
+    "periods": {
+      "1m": "1mo",
+      "3m": "3mo",
+      "1y": "1y",
+      "5y": "5y",
+      "full": "max"
+    },
+    "primary_negative_period": "1y",
+    "primary_positive_period": "1y",
+    "negative_reference": "rolling_high",
+    "positive_reference": "rolling_low"
+  },
+  "email": {
+    "provider": "brevo",
+    "sender_name": "Crypto Deep Alert",
+    "sender_email_env": "EMAIL_FROM",
+    "recipient_email_env": "EMAIL_TO",
+    "api_key_env": "BREVO_API_KEY"
+  }
+}
